@@ -27,12 +27,6 @@ def respond():
 
     else:
        try:
-           if text == Sticker:
-                bot_msg = "Don't use Stickers"
-                bot.sendMessage(chat_id=chat_id, text=bot_msg, reply_to_message_id=msg_id)
-           # clear the message we got from any non alphabets
-           text = re.sub(r"\W", "_", text)
-           # create the api link for the avatar based on http://avatars.adorable.io/
            bot_msg = "This is a Debug Test : Tribucinio al Timonale"
            bot.sendMessage(chat_id=chat_id, text = bot_msg, reply_to_message_id=msg_id)
        except Exception:
