@@ -19,7 +19,6 @@ def respond():
     msg_id = update.message.message_id
 
     text = update.message.text.encode('utf-8').decode()
-    print("got text message :", text)
 
     if text == "/start":
         bot_welcome = "welcome to bot, This is a test platform"
@@ -27,6 +26,7 @@ def respond():
 
     else:
        try:
+           text = re.sub(r"\W", "_", text)
            bot_msg = "This is a Debug Test : Tribucinio al Timonale"
            bot.sendMessage(chat_id=chat_id, text = bot_msg, reply_to_message_id=msg_id)
        except Exception:
