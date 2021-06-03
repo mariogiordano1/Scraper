@@ -18,12 +18,7 @@ def respond():
     update = telegram.Update.de_json(request.get_json(force=True), bot)
     chat_id = update.message.chat.id
     msg_id = update.message.message_id
-
-    if update.message.text:
-        text = update.message.text.encode('utf-8').decode()
-    if update.message.sticker:
-        bot.sendMessage(
-            chat_id=chat_id, text="Please do not send Stickers", reply_to_message_id=msg_id)
+    text = update.message
 
     if text == "/start":
         bot_welcome = "welcome to bot, This is a test platform"
