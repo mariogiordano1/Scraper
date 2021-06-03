@@ -2,41 +2,46 @@ from _typeshed import NoneType
 from flask import Flask, request
 import re
 import telegram
-from telebot.credentials import bot_token, bot_user_name,URL
+from telebot.credentials import bot_token, bot_user_name, URL
 
-global bot 
+global bot
 global TOKEN
 TOKEN = bot_token
-bot = telegram.Bot(token = TOKEN)
+bot = telegram.Bot(token=TOKEN)
 
 app = Flask(__name__)
+
 
 @app.route('/{}'.format(TOKEN), methods=['POST'])
 def respond():
 
-    update = telegram.Update.de_json(request.get_json(force = True), bot)
+    update = telegram.Update.de_json(request.get_json(force=True), bot)
     chat_id = update.message.chat.id
     msg_id = update.message.message_id
-    
-    if update.message.text != NoneType:
+
+    if update.message.text:
         text = update.message.text.encode('utf-8').decode()
     if update.message.sticker:
-        bot.sendMessage(chat_id=chat_id, text="Please do not send Stickers", reply_to_message_id=msg_id)
-        
+        bot.sendMessage(
+            chat_id=chat_id, text="Please do not send Stickers", reply_to_message_id=msg_id)
 
     if text == "/start":
         bot_welcome = "welcome to bot, This is a test platform"
-        bot.sendMessage(chat_id=chat_id, text=bot_welcome, reply_to_message_id=msg_id)
+        bot.sendMessage(chat_id=chat_id, text=bot_welcome,
+                        reply_to_message_id=msg_id)
 
     else:
-       try:
-           text = re.sub(r"\W", "_", text)
-           bot_msg = "This is a Debug Test : Tribucinio al Timonale"
-           bot.sendMessage(chat_id=chat_id, text = bot_msg, reply_to_message_id=msg_id)
-       except Exception:
-           # if things went wrong
-           bot.sendMessage(chat_id=chat_id, text="There was an unexpected problem with your message, please try sending another message ", reply_to_message_id=msg_id)
+        try:
+            text = re.sub(r"\W", "_", text)
+            bot_msg = "This is a Debug Test : Tribucinio al Timonale"
+            bot.sendMessage(chat_id=chat_id, text=bot_msg,
+                            reply_to_message_id=msg_id)
+        except Exception:
+            # if things went wrong
+            bot.sendMessage(
+                chat_id=chat_id, text="There was an unexpected problem with your message, please try sending another message ", reply_to_message_id=msg_id)
     return 'ok'
+
 
 @app.route('/setwebhook', methods=['GET', 'POST'])
 def set_webhook():
@@ -48,12 +53,14 @@ def set_webhook():
         return "webhook setup ok"
     else:
         return "webhook setup failed"
-    
+
+
 @app.route('/')
 def index():
     return '.'
+
+
 if __name__ == '__main__':
     # note the threaded arg which allow
     # your app to have more than one thread
     app.run(threaded=True)
-
