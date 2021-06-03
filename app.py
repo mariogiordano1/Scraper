@@ -1,4 +1,3 @@
-from _typeshed import NoneType
 from flask import Flask, request
 import re
 import telegram
