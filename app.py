@@ -1,7 +1,7 @@
+from _typeshed import NoneType
 from flask import Flask, request
 import re
 import telegram
-from telegram.files.sticker import Sticker
 from telebot.credentials import bot_token, bot_user_name,URL
 
 global bot 
@@ -17,8 +17,12 @@ def respond():
     update = telegram.Update.de_json(request.get_json(force = True), bot)
     chat_id = update.message.chat.id
     msg_id = update.message.message_id
-
-    text = update.message.text.encode('utf-8').decode()
+    
+    if update.message.text != NoneType:
+        text = update.message.text.encode('utf-8').decode()
+    if update.message.sticker:
+        bot.sendMessage(chat_id=chat_id, text="Please do not send Stickers", reply_to_message_id=msg_id)
+        
 
     if text == "/start":
         bot_welcome = "welcome to bot, This is a test platform"
@@ -31,7 +35,7 @@ def respond():
            bot.sendMessage(chat_id=chat_id, text = bot_msg, reply_to_message_id=msg_id)
        except Exception:
            # if things went wrong
-           bot.sendMessage(chat_id=chat_id, text="There was a problem in the name you used, please enter different name", reply_to_message_id=msg_id)
+           bot.sendMessage(chat_id=chat_id, text="There was an unexpected problem with your message, please try sending another message ", reply_to_message_id=msg_id)
     return 'ok'
 
 @app.route('/setwebhook', methods=['GET', 'POST'])
@@ -52,3 +56,4 @@ if __name__ == '__main__':
     # note the threaded arg which allow
     # your app to have more than one thread
     app.run(threaded=True)
+
