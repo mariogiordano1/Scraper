@@ -1,0 +1,50 @@
+[
+	{
+		"Title": "Webmail e strumenti collaborativi",
+		"Link": "http://www.uniba.it/webmail"
+	},
+	{
+		"Title": "Rubrica studenti",
+		"Link": "https://wsa.ict.uniba.it/servizi/servizi/rubricastudenti"
+	},
+	{
+		"Title": "Esse3",
+		"Link": "http://www.studenti.ict.uniba.it/esse3/Home.do"
+	},
+	{
+		"Title": "Piattaforma e-learning",
+		"Link": "http://elearning.di.uniba.it"
+	},
+	{
+		"Title": "Azure Dev Tools for Teaching",
+		"Link": "https://www.uniba.it/ricerca/dipartimenti/informatica/azure-dev-tools-for-teaching"
+	},
+	{
+		"Title": "Piattaforma Bluemix",
+		"Link": "http://www.uniba.it/notizieuniba/2016/piattaforma-bluemix-ibm"
+	},
+	{
+		"Title": "Visual Paradigm ",
+		"Link": "https://www.uniba.it/ricerca/dipartimenti/informatica/visual-paradigm-academic-partnership"
+	},
+	{
+		"Title": "Segreteria Studenti",
+		"Link": "https://www.uniba.it/organizzazione/amm-centrale/dofss/sezione-segreterie-studenti/uo-scienze-mm-ff-nn-e-scienze-biotecnologiche"
+	},
+	{
+		"Title": "Dott.ssa Marcella Cives",
+		"Link": "mailto:marcella.cives@uniba.it"
+	},
+	{
+		"Title": "Sig.ra Ida Mastroviti",
+		"Link": "mailto:ida.mastroviti@uniba.it"
+	},
+	{
+		"Title": "Sig.ra Rosetta Patitucci",
+		"Link": "mailto:rosettamaria.patitucci@uniba.it"
+	},
+	{
+		"Title": "Sig. Luigi Marchianò",
+		"Link": "mailto:luigi.marchiano@uniba.it"
+	}
+]
