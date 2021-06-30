@@ -40,7 +40,7 @@ client.connect(async err => {
     
   }
   //log into DB
-  const db = client.db("Unibottone");
+  const db = client.db("Unibabottone");
   // perform actions on the collection object
   //Contatti
   var collection = db.collection("Contatti");
