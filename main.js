@@ -1,7 +1,7 @@
 const schedule = require('node-schedule');
 const Script = require('./Script.js');
 
-const job = schedule.scheduleJob('0 4 * * *', function(err){
+const job = schedule.scheduleJob('*/30 * * * *', function(err){
   
     if(err)
   {
